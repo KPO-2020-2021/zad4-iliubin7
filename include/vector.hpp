@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#define MIN_DIFF 0.000001
 
 /*!
 * \file vector.hpp
@@ -85,7 +86,7 @@ class Vector {
    *      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
  |        na parametr.   
    */
-   Vector operator * (const Vector &v) const;
+   Vector operator * (const type &tmp) const;
 
    /*! 
    * \brief Realizuje dzielenie dwoch wektorow. 
@@ -97,9 +98,9 @@ class Vector {
    *      Iloraz dwoch skladnikow przekazanych jako wskaznik
    *      na parametr. 
    */
-   Vector operator / (const Vector &v) const;
+   Vector operator / (const type &tmp) const;
 
-   Vector rotation(const type &t) const;  // metoda rotacji wektora 2D
+   Vector rotation(const type &angle) const;  // metoda rotacji wektora 2D
 
     /*! 
    * \brief Metoda do znajdowania kwadrata dlugosci wektora  
@@ -120,6 +121,16 @@ class Vector {
    *      Dlugosc wektora.
    */
     type get_length() const;
+   
+   /*! 
+   * \brief Metoda zwracajaca wektor do tablicy o rozmiarze SIZE 
+
+   * Argumenty:
+   *   tab - tablica do ktorej wypisywany jest wektor 
+   * Zwraca:
+   *      tablice o zmienionej zawartosci
+   */
+    void vector_zmien(type (&tab)[SIZE]) const;
     
     /*! 
    * \brief Przeciazenie operatora == (sprawdza czy wektory sa rowne) 
@@ -131,7 +142,7 @@ class Vector {
    *      wartosc 1 gdy wektory sa rowne,
           a w przypadku przeciwnym zwraca wartosc 0  
    */
-   Vector operator == (const Vector &v) const;
+   bool operator == (const Vector &v) const;
 
     /*! 
    * \brief Funktor wektora. 
@@ -151,7 +162,7 @@ class Vector {
    * Zwraca:
    *      Wartosc wektora w danym miejscu tablicy.
    */
-  type &operator [] (unsigned int index) const;
+  type &operator [] (unsigned int index);
 
    /*! 
    * \brief Przeciazenie operatora << 
