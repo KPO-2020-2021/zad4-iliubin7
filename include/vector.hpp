@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include "../src/vector.ipp"
 #define MIN_DIFF 0.000001
 
 /*!
@@ -143,6 +144,15 @@ class Vector {
           a w przypadku przeciwnym zwraca wartosc 0  
    */
    bool operator == (const Vector &v) const;
+
+   /*!
+ *  \brief Metoda do obliczania iloczynu skalarnego wektorow                                                        
+ *  Argumenty:                                                               
+ *      v2 - drugi wektor do porownania                                              
+ *  Zwraca:                                                                  
+ *      result - wynik iloczynu skalarnego                           
+ */
+    type v_scalar(Vector const &v2) const;
 
     /*! 
    * \brief Funktor wektora. 

@@ -106,6 +106,15 @@ bool Vector<type, SIZE>::operator==(const Vector &v) const
     }
     return false;
 }
+template <typename type, unsigned int SIZE> 
+type Vector<type,SIZE>::v_scalar(Vector<type,SIZE> const & vec) const{
+    type result;
+    result = 0;
+    for (unsigned int i=0;i<SIZE;++i){
+        result+= size[i]*vec.size[i];
+    }
+    return result;
+}
 
 template <typename type, unsigned int SIZE>
 const type &Vector<type, SIZE>::operator [] (unsigned int index) const

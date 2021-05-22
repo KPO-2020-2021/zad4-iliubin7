@@ -2,7 +2,7 @@
 
 #include "vector.hpp"
 #include "matrix2D.hpp"
-#include "../src/vector2D.cpp"
+
 
 typedef Vector<double, 2> Vector2D;
 
@@ -15,4 +15,3 @@ typedef Vector<double, 2> Vector2D;
 */
 template < >
 inline Vector<double, 2> Vector<double, 2>::rotation(const double &angle) const;
-
