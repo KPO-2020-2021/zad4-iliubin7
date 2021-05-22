@@ -5,11 +5,11 @@
  */ 
 Rectangle::Rectangle()
 {
-    double r[SIZE];
+    double r[SIZE2D];
     int i;
     r[0]=1.0;
     r[1]=1.0;
-    for (i=2;i<SIZE;++i)
+    for (i=2;i<SIZE2D;++i)
         r[i]=0.0;
     v[0] = Vector2D(r);
     r[1]=-1.0; 
