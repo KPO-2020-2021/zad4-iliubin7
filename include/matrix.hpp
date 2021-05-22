@@ -105,6 +105,13 @@ class Matrix
    *  Zwraca:                                                                  
    *      \param[out] res - wynik mnozenia macierzy               
    */
+
+   void MatrixRotate(const type & angle);   // metoda rotacji dla macierzy 2D
+    
+   Matrix MatrixRotate(const type & angle, const char &axis) const;  // metoda rotacji dla macierzy 3D
+
+   Vector<type,SIZE> rotation_of_three(const Vector<type,SIZE> &rotation) const; // metoda obrotu wektora o zadane 3 katy wokol osi x,y,z w 3D
+
    Matrix multiply(Matrix const &mat) const;
 
    /*!
