@@ -188,7 +188,7 @@ void print_cuboid1(std::ostream &out) const;
 
 /*!
  *  \brief Metoda wypisania odpowiednich wierzcholkow do pliku
- *         zgodnie z zaproponowanym sposoem w zadaniu                              
+ *         zgodnie z zaproponowanym sposobem w zadaniu                              
  *  Argumenty:                                                                
  *        out - strumien wyjsciowy,                                                                                                
  */

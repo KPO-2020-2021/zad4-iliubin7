@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "size.hpp"
+#include  "vector3D.hpp"
 #include "exampleConfig.h"
 #include "../include/menu.hpp"
 

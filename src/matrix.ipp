@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/matrix.hpp"
 
 
@@ -28,10 +27,10 @@ template<typename type, unsigned int SIZE>
 Matrix<type, SIZE>::~Matrix(){}
 
 template<typename type, unsigned int SIZE>
-Vector<type, SIZE> Matrix<type, SIZE>::operator * (Vector<type, SIZE> tmp) {
-    Vector result;
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
+Vector<type,SIZE> Matrix<type,SIZE>::operator * (Vector<type,SIZE> const & tmp) const{
+    Vector<type,SIZE> result;
+    for (unsigned int  i = 0; i < SIZE; ++i) {
+        for (unsigned int  j = 0; j < SIZE; j++) {
             result[i] += value[i][j] * tmp[j];
         }
     }
@@ -44,6 +43,22 @@ Matrix<type, SIZE> Matrix<type,SIZE>::operator + (Matrix tmp) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             result(i, j) = this->value[i][j] + tmp(i, j);
+        }
+    }
+    return result;
+}
+
+template<typename type, unsigned int SIZE>
+Matrix<type,SIZE> Matrix<type,SIZE>::operator * (Matrix<type,SIZE> const &mat) const{
+    Matrix result;
+    for (unsigned int i=0; i<SIZE; i++){
+        result.value[i][i] = 0;    
+    }
+    for (unsigned int i=0; i< SIZE; ++i){
+        for (unsigned int j=0; j< SIZE; ++j){
+            for (unsigned int k=0;k< SIZE;k++){
+                result.value[i][j]+= value[i][k] * mat.value[k][j];
+            }
         }
     }
     return result;
@@ -112,24 +127,6 @@ std::ostream &operator << (std::ostream &out, const Matrix<type, SIZE> &mat) {
         std::cout << std::endl;
     }
     return out;
-}
-
-template<typename type, unsigned int SIZE>
-Matrix<type, SIZE> Matrix<type, SIZE>::multiply(Matrix<type, SIZE> const &mat) const{
-    int i,j,k;
-    Matrix res;
-    for (i=0; i<SIZE; i++){
-        res.value[i][i] = 0;    //zerowanie elementow macierzy ktore sa rowne 1 
-                                //(z konstruktora bezparametrycznego)
-    }
-    for (i=0; i< SIZE; ++i){
-        for (j=0; j< SIZE; ++j){
-            for (k=0;k<SIZE;k++){
-                res.value[i][j]+= value[i][k] * mat.value[k][j];
-            }
-        }
-    }
-    return res;
 }
 
 template<typename type, unsigned int SIZE>

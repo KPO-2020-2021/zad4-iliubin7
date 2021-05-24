@@ -2,7 +2,7 @@
 #include "vector.hpp"
 #include <iostream>
 #include <cstdlib>
-#include "vector3D.hpp"
+
 /*!
 * \file matrix.hpp
 *
@@ -45,7 +45,7 @@ class Matrix
     * Zwraca:
     *   Usuwa klase.
     */
-    Matrix::~Matrix(){}
+    ~Matrix();
 
     /*!
     * \brief Realizuje mnozenie macierzy przez wektor.  
@@ -55,7 +55,7 @@ class Matrix
     * Zwraca:                                                                   |
     *    Iloczyn dwoch skladnikow przekazanych jako wektor.                    |
     */
-     Vector<type, SIZE> operator * (Vector<type, SIZE> tmp);
+     Vector<type,SIZE> operator * (Vector<type,SIZE> const  &tmp) const;
     /*!
     * \brief Przeciążenie dodawania macierzy                                                          |
    * Argumenty:                                                                |
@@ -67,6 +67,16 @@ class Matrix
   Matrix operator + (Matrix tmp);
 
   /*!
+ *  \brief Zwraca wynik mnozenia dwoch macierzy                                                      
+ *  Argumenty:                                                               
+ *      this - macierz 1 
+ *      mat - macierz 2                                                              
+ *  Zwraca:                                                                  
+ *      result - wynik mnozenia macierzy               
+ */
+    Matrix operator * (Matrix const &mat) const;
+
+  /*!
   * \brief Funktor macierzy                                                          |
   * Argumenty:                                                                |
   *     row - numer wiersza.                                                  |
@@ -74,6 +84,7 @@ class Matrix
   * Zwraca:                                                                   |
   *    Wartosc macierzy w danym miejscu tablicy.                             |
   */
+  
    type  &operator () (unsigned int row, unsigned int column);
 
    /*!
@@ -112,8 +123,6 @@ class Matrix
 
    Vector<type,SIZE> rotation_of_three(const Vector<type,SIZE> &rotation) const; // metoda obrotu wektora o zadane 3 katy wokol osi x,y,z w 3D
 
-   Matrix multiply(Matrix const &mat) const;
-
    /*!
    *  \brief Zwraca macierz schodkowa utworzona przez eliminacje gaussa                                                        
    *  Argumenty:                                                               
@@ -131,14 +140,15 @@ class Matrix
    *      \param[out] det - wyznacznik               
    */
    type determinant() const;
-
-   /*!
+};
+ /*!
    *  \brief Przeciazenie operatora >>                                                 |
    * Argumenty:                                                                |
    *    in - strumien wyjsciowy,                                              |
    *    mat - macierz.                                                         |
    */
-   std::istream &operator >> (std::istream &in, Matrix &mat);
+   template<typename type, unsigned int SIZE>
+   std::istream &operator >> (std::istream &in, Matrix<type,SIZE> &mat);
 
    /*!
    *  \brief Przeciazenie operatora <<                                                 |
@@ -146,5 +156,6 @@ class Matrix
    *    out - strumien wejsciowy,                                             |
    *     mat - macierz.                                                        |
    */
-   std::ostream &operator << (std::ostream &out, Matrix const &mat);
-};  
+   template<typename type, unsigned int SIZE>
+   std::ostream &operator << (std::ostream &out, Matrix<type,SIZE> const &mat); 
+#include "../src/matrix.ipp"

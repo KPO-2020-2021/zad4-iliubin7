@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-#include "../src/vector.ipp"
 #define MIN_DIFF 0.000001
 
 /*!
@@ -173,7 +172,7 @@ class Vector {
    *      Wartosc wektora w danym miejscu tablicy.
    */
   type &operator [] (unsigned int index);
-
+   }; 
    /*! 
    * \brief Przeciazenie operatora << 
 
@@ -194,5 +193,4 @@ class Vector {
   template <typename type, unsigned int SIZE>
   std::istream &operator >> (std::istream &in, Vector<type,SIZE> &tmp);
 
-
-}; 
+#include "../src/vector.ipp"
