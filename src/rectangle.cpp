@@ -118,7 +118,7 @@ void Rectangle::new_rectangle( Vector2D (&ar)[NUMBEROFVERTEX]) const
  |  Zwraca:                                                                       |
  |      zmienione wartosci wektorow z wejscia                                          |
  */
-Rectangle Rectangle::rotate(const double &angle) const
+/*Rectangle Rectangle::rotate(const double &angle) const
 {
     Rectangle rotated;
     
@@ -128,9 +128,9 @@ Rectangle Rectangle::rotate(const double &angle) const
     rotated.v[3] = v[3].rotation(angle);
 
     return rotated;
-}
+}*/
 // metoda rotacji prostokata o kat podany przez uzytkownika
-Rectangle Rectangle::rotate() const{
+/*Rectangle Rectangle::rotate() const{
     double angle;
     Rectangle rotated;
     std::cin.ignore(100000, '\n');
@@ -142,7 +142,7 @@ Rectangle Rectangle::rotate() const{
     rotated.v[3] = v[3].rotation(angle);
 
     return rotated;
-}
+}  */
 /*!
  * metoda sprawdzania dlugosci bokow prostokata
  */
@@ -178,7 +178,7 @@ return 1;
 
 /*!
  * Metoda obracajaca prostokat n (podanych) razy       
- */
+ *//*
 Rectangle Rectangle::numberofrotation(){
     Rectangle rect;
     double ang, ang_r;
@@ -192,7 +192,7 @@ Rectangle Rectangle::numberofrotation(){
     rect = this->rotate(ang_r);
     return rect;
 }
-
+*/
 /*!
  *  Przeciążenie == prostokata                                                         
  *  Argumenty:                                                               

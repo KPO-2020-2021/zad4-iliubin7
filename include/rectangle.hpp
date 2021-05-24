@@ -26,7 +26,7 @@ class Rectangle{
 
    Rectangle translation(Vector2D const &t) const;   // metoda translacji prostokata o zadany wektor (z zadanym "na sztywno" wektorem)
 
-   Rectangle rotate(const double &angle) const;     // metoda rotacji prostokata (z zadanym "na sztywno" katem)
+   /*Rectangle rotate(const double &angle) const;  */   // metoda rotacji prostokata (z zadanym "na sztywno" katem)
 
    Rectangle translation() const;  // metoda translacji prostokata (wektor podaje uzytkownik)
 
@@ -36,7 +36,7 @@ class Rectangle{
 
    bool check_length(Vector2D const (&vx)[NUMBEROFVERTEX]) const; // metoda sprawdzania dlugosci przeciwleglych bokow prostokata
 
-   Rectangle numberofrotation();  // metoda obracajaca prostokat n razy   
+   /*Rectangle numberofrotation(); */ // metoda obracajaca prostokat n razy   
 
    bool Writetofile(std:: string filename); // metoda zapisu danych do pliku
    
