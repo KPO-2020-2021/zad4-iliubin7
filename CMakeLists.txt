@@ -38,10 +38,20 @@ find_lto(CXX)
 #                         Locate files (change as needed).
 # --------------------------------------------------------------------------------
 set(SOURCES          # All .cpp files in src/
-    src/example.cpp
+    src/menu.cpp
+    src/lacze_do_gnuplota.cpp
+    src/cuboid.cpp
+    src/rectangle.cpp
+
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
+    vector2D_tests.cpp
+    matrix2D_tests.cpp
+    rectangle_tests.cpp
+    vector3D_tests.cpp
+    matrix3D_tests.cpp
+    cuboid_tests.cpp
 )
 set(LIBRARY_NAME engine)  # Default name for the library built from src/*.cpp (change if you wish)
 
