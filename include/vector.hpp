@@ -110,7 +110,7 @@ class Vector {
    * Zwraca:
    *      Kwadrat dlugosci wektora.
    */
-    type mudul2() const;
+    type modul2() const;
 
     /*! 
    * \brief Metoda do znajdowania dlugosci wektora  

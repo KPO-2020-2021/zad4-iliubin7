@@ -16,8 +16,8 @@ Matrix<type, SIZE>::Matrix()
 
 template<typename type, unsigned int SIZE>
 Matrix<type, SIZE>::Matrix(type tmp[SIZE][SIZE]) {
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
+        for (unsigned int j = 0; j < SIZE; ++j) {
             value[i][j] = tmp[i][j];
         }
     }
@@ -120,8 +120,8 @@ std::istream &operator >> (std::istream &in, Matrix<type, SIZE> &mat) {
 
 template<typename type, unsigned int SIZE>
 std::ostream &operator << (std::ostream &out, const Matrix<type, SIZE> &mat) {
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
+        for (unsigned int j = 0; j < SIZE; ++j) {
             out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
         }
         std::cout << std::endl;

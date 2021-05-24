@@ -1,7 +1,7 @@
 #include"../include/matrix3D.hpp"
 
 template<>
-inline Matrix<double, 3> Matrix<double, 3>::MatrixRotate(const double &angle, const char &axis) const
+/*inline*/ Matrix<double, 3> Matrix<double, 3>::MatrixRotate(const double &angle, const char &axis) const
 {
     double angle_radian = angle * M_PI/180;    
     switch(axis){
@@ -36,7 +36,7 @@ inline Matrix<double, 3> Matrix<double, 3>::MatrixRotate(const double &angle, co
 }
 
 template <>
-inline Vector<double, 3> Matrix<double, 3>::rotation_of_three(const Vector<double,3> &vect_rot) const
+/*inline*/Vector<double, 3> Matrix<double, 3>::rotation_of_three(const Vector<double,3> &vect_rot) const
 {
     Matrix3D m = *this;
     Vector3D tmp;

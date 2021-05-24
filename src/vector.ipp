@@ -1,4 +1,3 @@
-
 #include "../include/vector.hpp"
 
 template <typename type, unsigned int SIZE>
@@ -24,7 +23,7 @@ template <typename type, unsigned int SIZE>
 Vector<type, SIZE> Vector<type, SIZE>::operator+(const Vector<type, SIZE> &v) const
 {
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
         result[i] = size[i] + v[i];
     }
     return result;
@@ -34,7 +33,7 @@ template <typename type, unsigned int SIZE>
 Vector<type, SIZE> Vector<type, SIZE>::operator-(const Vector<type, SIZE> &v) const
 {
     Vector result;
-    for (int i = 0; i < SIZE; ++i)
+    for (unsigned int i = 0; i < SIZE; ++i)
     {
         result[i] = size[i] - v[i];
     }
@@ -67,7 +66,7 @@ Vector<type, SIZE> Vector<type, SIZE>::operator/(const type &tmp) const
     return result;
 }
 template <typename type, unsigned int SIZE>
-type Vector<type, SIZE>::mudul2() const
+type Vector<type, SIZE>::modul2() const
 {
     type result = 0;
     for(unsigned i=0; i < SIZE; i++)
@@ -100,7 +99,7 @@ void Vector<type, SIZE>::vector_zmien(type (&tab)[SIZE]) const
 template <typename type, unsigned int SIZE>
 bool Vector<type, SIZE>::operator==(const Vector &v) const
 {
-    for (int i=0;i<SIZE;i++){
+    for (unsigned int i=0;i<SIZE;i++){
         if ((abs(size[i] - v.size[i]) <= MIN_DIFF))
             return true;
     }
@@ -134,7 +133,7 @@ type &Vector<type, SIZE>::operator [] (unsigned int index)
 template <typename type, unsigned int SIZE>
 std::ostream &operator << (std::ostream &out, Vector<type,SIZE> const &tmp)
 {
-    for (int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
         out << "[ " << tmp[i] << " ]\n";
     }
     return out;
@@ -143,7 +142,7 @@ std::ostream &operator << (std::ostream &out, Vector<type,SIZE> const &tmp)
 template <typename type, unsigned int SIZE>
 std::istream &operator >> (std::istream &in, Vector<type,SIZE> &tmp)
 {
-    for (int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
         in >> tmp[i];
     }
     std::cout << std::endl;

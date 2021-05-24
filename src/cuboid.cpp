@@ -108,15 +108,15 @@ void Cuboid::ret_vec(Vector3D (&v)[SIZE2D][SIZE]) const
 
 bool Cuboid::check_vec_eq() const
 {
-    Vector3D vecs[SIZE2D][SIZE];
-    this->ret_vec(vecs);
+    Vector3D v[SIZE2D][SIZE];
+    this->ret_vec(v);
     for (int i = 0; i < 2; ++i)
     {
-        if (!(vecs[i][0].v_scalar(vecs[i][1]) <= 0.0000000001))
+        if (!(v[i][0].v_scalar(v[i][1]) <= 0.0000000001))
             return 0;
-        if (!(vecs[i][0].v_scalar(vecs[i][2]) <= 0.0000000001))
+        if (!(v[i][0].v_scalar(v[i][2]) <= 0.0000000001))
             return 0;
-        if (!(vecs[i][1].v_scalar(vecs[i][2]) <= 0.0000000001))
+        if (!(v[i][1].v_scalar(v[i][2]) <= 0.0000000001))
             return 0;
     }
     return 1;
@@ -129,7 +129,7 @@ bool Cuboid::check_cube() const
     return 1;
 }
 
-bool Cuboid::operator==(const Cuboid &cube) const
+bool Cuboid::operator == (const Cuboid &cube) const
 {
     for (int i = 0; i < 2; ++i)
     {
@@ -216,14 +216,14 @@ void Cuboid::print_cuboid2(std::ostream &out) const
 {
     Vector3D vec[8];
     double array[SIZE2D][NUMBEROFVERTEX][SIZE];
-    vc3[0][0].get_vec(array[0][0]);  //W1
-    vc3[0][1].get_vec(array[0][1]);  //W2
-    vc3[0][3].get_vec(array[0][2]);  //W3
-    vc3[0][2].get_vec(array[0][3]);  //W4
-    vc3[1][3].get_vec(array[1][0]);  //W5
-    vc3[1][2].get_vec(array[1][1]);  //W6
-    vc3[1][0].get_vec(array[1][2]);  //W7
-    vc3[1][1].get_vec(array[1][3]);  //W8
+    vc3[0][0].vector_zmien(array[0][0]);  //W1
+    vc3[0][1].vector_zmien(array[0][1]);  //W2
+    vc3[0][3].vector_zmien(array[0][2]);  //W3
+    vc3[0][2].vector_zmien(array[0][3]);  //W4
+    vc3[1][3].vector_zmien(array[1][0]);  //W5
+    vc3[1][2].vector_zmien(array[1][1]);  //W6
+    vc3[1][0].vector_zmien(array[1][2]);  //W7
+    vc3[1][1].vector_zmien(array[1][3]);  //W8
     
     out.precision(10);
     for (int i=0;i<2;++i){

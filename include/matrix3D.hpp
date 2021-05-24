@@ -15,7 +15,7 @@ typedef Matrix<double, 3> Matrix3D;
  *          rotated - macierz obrotu 
  */
   template <>
-  inline Matrix<double,3> Matrix<double, 3>::MatrixRotate(const double &angle, const char &axis) const;
+  /*inline*/ Matrix<double,3> Matrix<double, 3>::MatrixRotate(const double &angle, const char &axis) const;
 
   /*!
  * \brief Obrot wektora o zadane 3 katy wokol osi x,y,z w 3D             
@@ -25,7 +25,7 @@ typedef Matrix<double, 3> Matrix3D;
  *      rotated - obrocony wektor                                                      
  */
   template <>
-  inline Vector<double, 3> Matrix<double, 3>::rotation_of_three(const Vector<double,3> &vect_rot) const;
+  /*inline*/ Vector<double, 3> Matrix<double, 3>::rotation_of_three(const Vector<double,3> &vect_rot) const;
 
   
   
