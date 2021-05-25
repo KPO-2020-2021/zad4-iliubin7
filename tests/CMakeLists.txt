@@ -5,7 +5,6 @@ set(TESTFILES        # All .cpp files in tests/
     main.cpp
     vector2D_tests.cpp
     matrix2D_tests.cpp
-    rectangle_tests.cpp
     vector3D_tests.cpp
     matrix3D_tests.cpp
     cuboid_tests.cpp
