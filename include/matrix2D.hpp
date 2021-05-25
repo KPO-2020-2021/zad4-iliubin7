@@ -12,3 +12,5 @@ typedef Matrix<double, 2> Matrix2D;
  */
  template <>
  inline void Matrix <double, 2>::MatrixRotate(const double &angle);
+
+ #include "../src/matrix2D.cpp"

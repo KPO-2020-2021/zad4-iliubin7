@@ -44,7 +44,7 @@ template <typename type, unsigned int SIZE>
 Vector<type, SIZE> Vector<type, SIZE>::operator*(const type &tmp) const
 {
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
         result[i] = size[i] * tmp;
     }
     return result;

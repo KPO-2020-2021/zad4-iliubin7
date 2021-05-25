@@ -40,8 +40,8 @@ Vector<type,SIZE> Matrix<type,SIZE>::operator * (Vector<type,SIZE> const & tmp) 
 template<typename type, unsigned int SIZE>
 Matrix<type, SIZE> Matrix<type,SIZE>::operator + (Matrix tmp) {
     Matrix result;
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
+    for (unsigned int i = 0; i < SIZE; i++) {
+        for (unsigned int j = 0; j < SIZE; j++) {
             result(i, j) = this->value[i][j] + tmp(i, j);
         }
     }
@@ -98,9 +98,8 @@ const type &Matrix<type, SIZE>::operator () (unsigned int row, unsigned int colu
 
 template<typename type, unsigned int SIZE>
 bool Matrix<type, SIZE>::operator == (Matrix const &tmp) const{
-    int i,j;
-    for (i=0;i<SIZE;++i){
-        for (j=0;j<SIZE;++j){
+    for (unsigned int i=0;i<SIZE;++i){
+        for (unsigned int j=0;j<SIZE;++j){
             if (abs(value[i][j]-tmp.value[i][j])<=0.000001)
                 return true;
         }
@@ -110,8 +109,8 @@ bool Matrix<type, SIZE>::operator == (Matrix const &tmp) const{
 
 template<typename type, unsigned int SIZE>
 std::istream &operator >> (std::istream &in, Matrix<type, SIZE> &mat) {
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
+    for (unsigned int i = 0; i < SIZE; ++i) {
+        for (unsigned int j = 0; j < SIZE; ++j) {
             in >> mat(i, j);
         }
     }
@@ -134,12 +133,12 @@ Matrix<type,SIZE> Matrix<type, SIZE>::gauss() const{
     Matrix mat = *this;
 
     double ratio;
-    for (int i=0;i<SIZE-1;i++){
+    for (unsigned int i=0;i<SIZE-1;i++){
         if (value[i][i] == 0)
             return 0;
-        for (int j=i+1; j<SIZE; j++){
+        for (unsigned int j=i+1; j<SIZE; j++){
             ratio = value[j][i] / value[i][i];
-            for (int k=0; k<SIZE; k++){
+            for (unsigned int k=0; k<SIZE; k++){
                 mat.value[j][k] = (value[j][k] - ratio*value[i][k]);
             }
         }
@@ -152,7 +151,7 @@ type Matrix<type, SIZE>::determinant() const{
     double det;
     Matrix tmp = this->gauss();
     det = 1;
-    for (int i=0;i<SIZE;++i){
+    for (unsigned int i=0;i<SIZE;++i){
         det*=tmp.value[i][i];
     }
     return det;

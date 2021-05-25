@@ -7,8 +7,8 @@ Menu::Menu()
 
 void Menu::init_menu(Vector3D (&tab)[2][4])
 {
-    Cuboid cub(tab);
-    assert(cub);
+    Cuboid cube(tab);
+    assert(cube);
     char n;
     show();
     while (open)
@@ -16,22 +16,22 @@ void Menu::init_menu(Vector3D (&tab)[2][4])
         std::cout << "Twoj wybor? (m - menu) > ";
         std::cin >> n;
         std::cout << "\n";
-        switch_menu(n, cub);
+        switch_menu(n, cube);
     }
 }
 
-bool Menu::assert(Cuboid const &cub)
+bool Menu::assert(Cuboid const &cube)
 {
-    print_side_length(cub);
+    print_side_length(cube);
 
-    if (cub.check_v())
+    if (cube.check_v())
         std::cout << "Przecwilegle boki sa rownolegle\n\n";
-    if (cub.check_vec_eq())
+    if (cube.check_vec_eq())
     {
         std::cout << "Boki wychodzace z dwoch przeciwleglych wierzcholkow,\n";
         std::cout << "sa wzgledem siebie prostopadle\n\n";
     }
-    if (!cub.check_cube())
+    if (!cube.check_cube())
     {
         std::cerr << "Blednie zainicjowany prostokat\n";
         open = 0;
@@ -40,10 +40,10 @@ bool Menu::assert(Cuboid const &cub)
     return 1;
 }
 
-void Menu::print_side_length(Cuboid const &cub) const
+void Menu::print_side_length(Cuboid const &cube) const
 {
     double l[3][2];
-    cub.write_to_ar(l);
+    cube.write_to_ar(l);
 
     if (abs(l[0][0] == l[0][1]) <=0.00000000001)
         std::cout << "\nDluzsze przeciwlegle boki sa sobie rowne\n";
@@ -51,6 +51,7 @@ void Menu::print_side_length(Cuboid const &cub) const
         std::cout << "\n !!! Dluzsze przeciwlegle boki nie sa sobie rowne\n";
 
     std::cout << "Dlugosc pierwszego boku: " << l[0][0] << "\n";
+
     std::cout << "Dlugosc trzeciego boku: " << l[0][1] << "\n";
 
     if (abs(l[1][0] - l[1][1])<=0.00000000001)
@@ -59,6 +60,7 @@ void Menu::print_side_length(Cuboid const &cub) const
         std::cout << "\n !!! Krotsze przeciwlegle boki nie sa sobie rowne\n";
 
     std::cout << "Dlugosc pierwszego boku: " << l[1][0] << "\n";
+
     std::cout << "Dlugosc trzeciego boku: " << l[1][1] << "\n";
     if (abs(l[2][0] - l[2][1]) <=0.00000000001)
         std::cout << "\nPoprzeczne przeciwlegle boki sa sobie rowne\n";
@@ -175,7 +177,7 @@ void Menu::switch_rotation()
         }
         default:
         {
-            std::cerr << "Niepoprawne oznaczenie osi. Dopuszczalne znaki to: x y z\n Sprobuj jeszcze raz\n";
+            std::cerr << "Bledne oznaczenie osi. Dopuszczalne znaki to: x y z\n Sprobuj jeszcze raz\n";
         }
         }
         std::cin.ignore(1000000, '\n');
