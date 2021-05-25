@@ -78,7 +78,7 @@ void Menu::switch_menu(const char &op, Cuboid &cube)
     case 'o':
     {
         std::cout << "   Podaj sekwencje oznaczen oraz katy obrotu w stopniach. Wejscie typu 'axis angle'\n";
-        std::cout << "   !!! Aby zakonczyc wczytywanie wpisz: '. 1' !!!\n";
+        std::cout << "   !!! Aby zakonczyc wczytywanie wpisz: '. k' !!!\n";
         switch_rotation();
         std::cout << "Ile razy powtorzyc operacjie? > ";
         std::cin >> times;

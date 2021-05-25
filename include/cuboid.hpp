@@ -85,7 +85,8 @@ bool check_length_of_v() const;
  *         Wartosci dlugosci tych bokow                                      
  *  Argumenty:
  *       ar - tablica x3 do ktorej zapisza sie wartosci                                                                                                       
- *  Zwraca:                                                                                                  
+ *  Zwraca:    
+ *       Brak.                                                                                              
  */
 void write_to_ar(double (&ar)[SIZE][SIZE2D]) const;
 

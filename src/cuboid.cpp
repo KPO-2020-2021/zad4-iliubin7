@@ -65,10 +65,9 @@ bool Cuboid::check_length_of_v() const
 
 void Cuboid::write_to_ar(double (&tab)[SIZE][SIZE2D]) const
 {
-    int i;
     Vector3D opp[3][2];
     this->new_vect(opp);
-    for (i = 0; i < 3; ++i)
+    for (int i = 0; i < 3; ++i)
     {
             tab[i][0] = opp[i][0].get_length();
             tab[i][1] = opp[i][1].get_length();
@@ -93,7 +92,7 @@ bool Cuboid::check_v() const
             return 0;
     }
     return 1;
-}
+} 
 
 void Cuboid::ret_vec(Vector3D (&v)[SIZE2D][SIZE]) const
 {
