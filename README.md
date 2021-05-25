@@ -75,8 +75,10 @@ Example:
 
 To run all tests type:
 
+``` bash
 > cd build
-> ./unit_tests      # Makes and runs all tests
+> ./unit_tests   # Makes and runs all tests
+```
 
 ## .gitignore
 
